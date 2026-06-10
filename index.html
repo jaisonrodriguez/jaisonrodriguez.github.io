@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaison Rodríguez | Desarrollador Full-Stack & Analista de Datos</title>
+    <meta name="description" content="Portafolio profesional de Jaison Rodríguez. Desarrollador Full-Stack y Analista de Datos.">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Jaison<span>R.</span></a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">Perfil</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Proyectos</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experiencia</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Stack</a></li>
+                    <li class="nav-item"><a href="#education" class="nav-link">Educación</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" class="btn btn-outline" download>Descargar CV</a>
+                </div>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section" id="hero">
+            <div class="hero-container container grid hero-grid">
+                <div class="hero-data">
+                    <h1 class="hero-title">Hola, soy <span>Jaison Rodríguez</span><br>Desarrollador Full-Stack & Analista de Datos</h1>
+                    <p class="hero-subtitle">Especialista en convertir necesidades de negocio reales en sistemas funcionales, escalables y bien documentados. Pasto, Colombia.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Ver Portafolio</a>
+                        <a href="#contact" class="btn btn-secondary">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="Foto_perfil_Jaison.jpg" alt="Jaison Rodríguez" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="about section" id="about">
+            <h2 class="section-title">Perfil Profesional</h2>
+            <div class="about-container container">
+                <div class="about-content">
+                    <p>Desarrollador Full-Stack y Analista de Datos con más de 5 años de experiencia construyendo soluciones de producción. He diseñado y desplegado una plataforma e-commerce completa (React + Supabase + Wompi) con autenticación multicapa, integración CRM en tiempo real y pasarela de pagos para el mercado colombiano.</p>
+                    <p>Cuento con experiencia probada en Python, SQL y automatización de procesos — incluyendo la detección y corrección de una vulnerabilidad de seguridad crítica en producción. Me especializo en convertir necesidades de negocio reales en sistemas funcionales, escalables y bien documentados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <h2 class="section-title">Proyectos de Portafolio</h2>
+            <div class="projects-container container grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">ArtDesign E-commerce</h3>
+                        <p class="project-description">Plataforma e-commerce completa con autenticación multicapa (Google OAuth, OTP WhatsApp). Sistema de 3 roles con RLS en PostgreSQL y sincronización en tiempo real con Zoho CRM. Generador de catálogo PDF dinámico.</p>
+                        <div class="project-tags">
+                            <span>React/Vite</span><span>Supabase</span><span>PostgreSQL</span><span>Wompi</span><span>Python</span><span>GCS</span>
+                        </div>
+                        <ul class="project-bullets" style="padding-left:1rem; margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-color-light);">
+                            <li>Autenticación y Edge Functions para pasarela Wompi.</li>
+                            <li>Pipeline ETL en Python para carga masiva CSV → Supabase.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/jaisonrodriguez/Pagina_ArtDesing---copia" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Ver Código</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">ZajunaBot — Herramienta RPA</h3>
+                        <p class="project-description">Herramienta de automatización RPA para Moodle (Zajuna). Navegación desatendida, inyección de JS para filtrado en el DOM y sistema tolerante a fallos con reintentos automáticos.</p>
+                        <div class="project-tags">
+                            <span>Python</span><span>Playwright</span><span>JavaScript</span><span>PyInstaller</span>
+                        </div>
+                        <ul class="project-bullets" style="padding-left:1rem; margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-color-light);">
+                            <li>Extracción de sesskeys y modificación masiva de fechas.</li>
+                            <li>Empaquetado como ejecutable (.exe) para usuarios finales.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Ver Código</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience section" id="experience">
+            <h2 class="section-title">Experiencia Laboral</h2>
+            <div class="experience-container container">
+                <div class="timeline">
+                    <!-- Exp 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Analista de Datos</h3>
+                            <span class="timeline-company">Mi Crep SAS | Nov 2021 – Presente | Remoto</span>
+                            <ul class="timeline-list">
+                                <li>Ejecuto extracción, transformación y modelado de datos financieros y operativos con Python, SQL y Java sobre bases MySQL y SQL Server.</li>
+                                <li>Optimicé consultas complejas en SQL Server reduciendo tiempos de respuesta del sistema en operaciones de reporte recurrentes.</li>
+                                <li>Aplico modelos de análisis estadístico y machine learning (scikit-learn) para identificación de patrones y oportunidades de negocio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Exp 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Pasante SENA — Etapa Productiva</h3>
+                            <span class="timeline-company">Corporación Mundial de la Mujer Colombia | May 2025 – Nov 2025</span>
+                            <ul class="timeline-list">
+                                <li>Desarrollé y optimicé el sistema CRM institucional, mejorando la gestión de relaciones con clientes y automatizando procesos internos.</li>
+                                <li>Diseñé procesos ETL para integración, depuración y normalización de bases de datos desde múltiples fuentes heterogéneas.</li>
+                                <li>Construí dashboards interactivos en Power BI con KPIs estratégicos para monitoreo institucional y toma de decisiones.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Exp 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Asesor de Crédito / Automatización</h3>
+                            <span class="timeline-company">Nexabpo | Mar 2020 – Nov 2020</span>
+                            <ul class="timeline-list">
+                                <li>Automaticé consultas complejas y estructuré generación de reportes recurrentes para seguimiento ágil de KPIs de crédito.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Exp 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Analista de Libranza y Datos</h3>
+                            <span class="timeline-company">Kreditplus / Consultorías Financieras | Jun 2017 – Sep 2019</span>
+                            <ul class="timeline-list">
+                                <li>Preparación, extracción y modelado de datos financieros con SQL SSMS, Power Query, Power Pivot y Power BI para soporte de decisiones operativas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Stack Técnico</h2>
+            <div class="skills-container container grid">
+                <!-- Frontend -->
+                <div class="skills-card">
+                    <h3 class="skills-title"><i class="fas fa-desktop"></i> Frontend</h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Vite</span>
+                        <span class="skill-badge">JavaScript (ES2022+)</span>
+                        <span class="skill-badge">HTML5/CSS3</span>
+                        <span class="skill-badge">Tailwind</span>
+                    </div>
+                </div>
+                <!-- Backend & BaaS -->
+                <div class="skills-card">
+                    <h3 class="skills-title"><i class="fas fa-server"></i> Backend & BaaS</h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">Supabase</span>
+                        <span class="skill-badge">Node.js</span>
+                    </div>
+                </div>
+                <!-- Data & BI -->
+                <div class="skills-card">
+                    <h3 class="skills-title"><i class="fas fa-chart-pie"></i> Datos & BI</h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">Pandas</span>
+                        <span class="skill-badge">scikit-learn</span>
+                        <span class="skill-badge">Power BI</span>
+                        <span class="skill-badge">Power Query</span>
+                    </div>
+                </div>
+                <!-- Cloud & DBs -->
+                <div class="skills-card">
+                    <h3 class="skills-title"><i class="fas fa-database"></i> Cloud & Databases</h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">SQL Server</span>
+                        <span class="skill-badge">Google Cloud Storage</span>
+                        <span class="skill-badge">Firebase</span>
+                    </div>
+                </div>
+                <!-- Automation -->
+                <div class="skills-card">
+                    <h3 class="skills-title"><i class="fas fa-robot"></i> Automatización</h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">Playwright</span>
+                        <span class="skill-badge">RPA</span>
+                        <span class="skill-badge">PyInstaller</span>
+                        <span class="skill-badge">Power Automate</span>
+                    </div>
+                </div>
+                <!-- Languages & Others -->
+                <div class="skills-card">
+                    <h3 class="skills-title"><i class="fas fa-code"></i> Lenguajes & Integraciones</h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">SQL</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Wompi</span>
+                        <span class="skill-badge">Zoho CRM</span>
+                        <span class="skill-badge">Google OAuth</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education section" id="education">
+            <h2 class="section-title">Educación y Certificaciones</h2>
+            <div class="education-container container grid">
+                <div class="education-card">
+                    <i class="fas fa-graduation-cap education-icon"></i>
+                    <h3 class="education-title">Análisis y Desarrollo de Software</h3>
+                    <span class="education-institute">SENA — Etapa Productiva en curso</span>
+                </div>
+                <div class="education-card">
+                    <i class="fas fa-graduation-cap education-icon"></i>
+                    <h3 class="education-title">Gestión de Mercados (Titulado)</h3>
+                    <span class="education-institute">SENA</span>
+                </div>
+                <div class="education-card">
+                    <i class="fas fa-certificate education-icon"></i>
+                    <h3 class="education-title">Rutas de formación: Python, SQL, BI</h3>
+                    <span class="education-institute">Platzi (2023)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-container container grid">
+                <div class="contact-info">
+                    <h3 class="contact-subtitle">Hablemos de tu próximo proyecto</h3>
+                    <p class="contact-text">Estoy disponible para nuevos retos profesionales. Contáctame para llevar tu negocio al siguiente nivel.</p>
+                    <div class="contact-socials">
+                        <a href="mailto:jaisonrodriguez@gmail.com" class="social-link"><i class="fas fa-envelope"></i> jaisonrodriguez@gmail.com</a>
+                        <a href="tel:+573239306599" class="social-link"><i class="fas fa-phone"></i> +57 323 930 6599</a>
+                        <a href="https://github.com/jaisonrodriguez" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <form action="#" class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" id="name" class="form-input" placeholder="Tu nombre" required>
+                        <span class="form-error">Por favor ingresa un nombre válido.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+                        <span class="form-error">Por favor ingresa un email válido.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea id="message" class="form-input" rows="5" placeholder="¿Cómo puedo ayudarte?" required></textarea>
+                        <span class="form-error">El mensaje no puede estar vacío.</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Enviar Mensaje</button>
+                    <p class="form-success-msg" id="form-success-msg" style="display:none;">¡Mensaje enviado con éxito!</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <p class="footer-copy">&#169; <span id="current-year"></span> Jaison Rodríguez. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
