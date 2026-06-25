@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaison Rodriguez | Desarrollador Full Stack & Arquitecto</title>
+    <title>Jaison Rodríguez - Hoja de Vida</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,462 +11,286 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#3b82f6',
-                        secondary: '#1e3a8a',
+                        primary: '#2563eb', /* blue-600 */
+                        secondary: '#475569', /* slate-600 */
                         dark: '#0f172a',
-                        card: '#1e293b'
                     }
                 }
             }
         }
     </script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%);
-            background-attachment: fixed;
-            min-height: 100vh;
+            background-color: #f8fafc;
+            color: #334155;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
-
-        /* Glassmorphism Classes */
-        .glass {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        @media print {
+            body { background-color: white; }
+            .no-print { display: none !important; }
+            .print-break-inside-avoid { break-inside: avoid; }
+            .shadow-xl { box-shadow: none !important; }
+            .container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
         }
-        
-        .glass-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Hover Animations */
-        .hover-lift {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.3);
-            border-color: rgba(59, 130, 246, 0.4);
-        }
-
-        .hover-glow {
-            transition: all 0.3s ease;
-        }
-        .hover-glow:hover {
-            text-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
-            color: #60a5fa;
-        }
-        
-        .link-interactive {
+        .section-title {
             position: relative;
-            display: inline-block;
-            transition: color 0.3s ease;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .link-interactive::after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
             left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
+            bottom: 0;
+            height: 3px;
+            width: 40px;
+            background-color: #2563eb;
+            border-radius: 2px;
         }
-        .link-interactive:hover::after {
-            width: 100%;
+        .resume-page {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 0.5rem;
+            overflow: hidden;
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
-        
-        /* Fade in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media print {
+            .resume-page {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
         }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        .delay-100 { animation-delay: 0.1s; opacity: 0; }
-        .delay-200 { animation-delay: 0.2s; opacity: 0; }
-        .delay-300 { animation-delay: 0.3s; opacity: 0; }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-500 selection:text-white">
+<body class="antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b-0 py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-wider hover-glow">JR<span class="text-blue-500">.</span></a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#habilidades" class="link-interactive font-medium">Habilidades</a>
-                <a href="#proyectos" class="link-interactive font-medium">Proyectos</a>
-                <a href="#contacto" class="link-interactive font-medium">Contacto</a>
-                <a href="https://jaisonrodriguez-github-io.vercel.app/" target="_blank" class="px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.6)] transform hover:-translate-y-1 flex items-center gap-2">
-                    <i class="fa-solid fa-file-pdf"></i> Mi Hoja de Vida
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Action Buttons (No Print) -->
+    <div class="fixed top-4 right-4 z-50 flex gap-3 no-print">
+        <button onclick="window.print()" class="px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition flex items-center gap-2 font-medium">
+            <i class="fa-solid fa-print"></i> Imprimir / PDF
+        </button>
+    </div>
 
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="max-w-4xl animate-fade-in">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 font-medium text-sm mb-8">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                    </span>
-                    Desarrollador Full Stack / Arquitecto de Software
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                    Transformando ideas complejas en <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">soluciones digitales de alto impacto.</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-3xl leading-relaxed">
-                    Soy <strong class="text-white">Jaison Rodriguez</strong>. Me especializo en crear ecosistemas web escalables (Zero Trust), software de escritorio comercial con Inteligencia Artificial, e interfaces (UX) ultra-premium altamente accesibles.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#proyectos" class="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transform transition-all hover:-translate-y-1 flex items-center gap-3">
-                        Ver Mis Proyectos <i class="fa-solid fa-arrow-down"></i>
-                    </a>
-                    <a href="#contacto" class="px-8 py-4 rounded-xl glass border-slate-600 hover:border-slate-400 text-white font-bold text-lg transition-all hover:-translate-y-1 flex items-center gap-3 group">
-                        Contactar <i class="fa-brands fa-whatsapp text-green-400 group-hover:text-green-300 transition-colors"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="container resume-page flex flex-col md:flex-row">
         
-        <!-- Decorative bg elements -->
-        <div class="absolute top-0 right-0 -z-10 w-3/4 h-full bg-gradient-to-l from-blue-900/20 to-transparent"></div>
-        <div class="absolute -top-40 -right-40 -z-10 w-96 h-96 bg-blue-600/30 rounded-full blur-[120px]"></div>
-        <div class="absolute top-1/2 left-0 -z-10 w-72 h-72 bg-indigo-600/20 rounded-full blur-[100px]"></div>
-    </header>
-
-    <!-- Skills Section -->
-    <section id="habilidades" class="py-20 bg-black/20 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12 animate-fade-in delay-100">
-                <h2 class="text-sm font-bold text-blue-400 tracking-widest uppercase mb-2">Stack Tecnológico Principal</h2>
-                <p class="text-slate-400">Herramientas de vanguardia con las que construyo arquitecturas robustas.</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-12 text-slate-300 animate-fade-in delay-200">
-                <div class="flex flex-col items-center gap-3 hover:text-white transition-colors group cursor-default">
-                    <i class="fa-brands fa-react text-5xl group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium text-sm">Next.js 14 / React 19</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 hover:text-yellow-400 transition-colors group cursor-default">
-                    <i class="fa-brands fa-js text-5xl group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium text-sm">Node.js / TypeScript</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 hover:text-orange-500 transition-colors group cursor-default">
-                    <i class="fa-solid fa-robot text-5xl group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium text-sm">IA (Google Gemini)</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 hover:text-emerald-400 transition-colors group cursor-default">
-                    <i class="fa-solid fa-database text-5xl group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium text-sm">Supabase / SQL</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 hover:text-red-500 transition-colors group cursor-default">
-                    <i class="fa-solid fa-layer-group text-5xl group-hover:scale-110 transition-transform"></i>
-                    <span class="font-medium text-sm">Redis / BullMQ</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 hover:text-sky-400 transition-colors group cursor-default">
-                    <svg class="w-12 h-12 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.4-1.8c0.913,0.228,1.565,0.89,2.288,1.624C13.666,10.318,14.71,11.4,18.001,11.4c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.4,1.8c-0.913-0.228-1.565-0.89-2.288-1.624C16.337,5.682,15.292,4.8,12.001,4.8z M6.001,11.4c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.4-1.8c0.913,0.228,1.565,0.89,2.288,1.624c0.977,0.994,2.021,2.076,5.312,2.076c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.4,1.8c-0.913-0.228-1.565-0.89-2.288-1.624C9.666,12.318,8.622,11.4,6.001,11.4z"/></svg>
-                    <span class="font-medium text-sm">Tailwind CSS</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="proyectos" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20 animate-fade-in delay-100 flex items-center justify-between">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Proyectos Destacados</h2>
-                    <p class="text-slate-400 text-lg max-w-2xl">Desde ecosistemas B2B/B2C completos hasta software de escritorio comercial potenciado con Inteligencia Artificial.</p>
-                </div>
-                <div class="hidden md:block w-32 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
-            </div>
-
-            <div class="space-y-16">
-                
-                <!-- Project 1: AutoZajuna-Pro -->
-                <div class="glass-card rounded-3xl overflow-hidden hover-lift group animate-fade-in delay-200">
-                    <div class="grid lg:grid-cols-12 gap-0">
-                        <div class="lg:col-span-7 p-10 md:p-12 flex flex-col justify-center">
-                            <div class="inline-flex items-center gap-2 text-emerald-400 font-bold mb-4 tracking-widest text-sm uppercase">
-                                <i class="fa-solid fa-desktop"></i> Software Comercial & IA
-                            </div>
-                            <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white group-hover:text-emerald-400 transition-colors">AutoZajuna-Pro</h3>
-                            
-                            <p class="text-slate-300 mb-6 text-lg leading-relaxed">
-                                Aplicación de escritorio (Windows 10/11) que automatiza la calificación de evidencias para instructores utilizando modelos de Inteligencia Artificial (Google Gemini).
-                            </p>
-                            
-                            <ul class="space-y-3 text-slate-400 mb-8">
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> <strong>Inteligencia Artificial:</strong> Integración con <em>Google Gemini</em> para evaluar tareas dinámicamente según criterios pedagógicos.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> <strong>Seguridad & Licencias:</strong> Validación mediante <em>Machine ID</em> y almacenamiento encriptado en el Administrador de Credenciales de Windows.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> <strong>Arquitectura Node.js:</strong> Motor de Web Scraping robusto, reportes en PDF y sistema de autoupdate integrado en el `.exe`.</li>
-                            </ul>
-                            
-                            <div class="flex flex-wrap gap-3 mt-auto mb-8">
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">Node.js</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">Google Gemini AI</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">Machine ID License</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Visual presentation side -->
-                        <div class="lg:col-span-5 bg-gradient-to-br from-emerald-900/40 to-slate-900 flex items-center justify-center p-12 border-l border-white/5 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
-                            
-                            <div class="relative z-10 w-full aspect-square rounded-2xl bg-slate-800/80 border border-emerald-500/20 shadow-2xl flex flex-col items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                                <i class="fa-solid fa-microchip text-7xl text-emerald-400 mb-6 drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]"></i>
-                                <h4 class="text-2xl font-bold text-white mb-2">AutoZajuna-Pro</h4>
-                                <p class="text-emerald-300 text-center px-6">Calificación automatizada potenciada con IA</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Viabot (New Addition) -->
-                <div class="glass-card rounded-3xl overflow-hidden hover-lift group animate-fade-in delay-200">
-                    <div class="grid lg:grid-cols-12 gap-0">
-                        <div class="lg:col-span-5 order-last lg:order-first bg-gradient-to-br from-fuchsia-900/40 to-slate-900 flex items-center justify-center p-12 border-r border-white/5 relative overflow-hidden">
-                             <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
-                            
-                            <div class="relative z-10 w-full aspect-square rounded-2xl bg-slate-800/80 border border-fuchsia-500/20 shadow-2xl flex flex-col items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                                <i class="fa-solid fa-plane-departure text-7xl text-fuchsia-400 mb-6 drop-shadow-[0_0_15px_rgba(232,121,249,0.5)]"></i>
-                                <h4 class="text-2xl font-bold text-white mb-2">Viabot CRM</h4>
-                                <p class="text-fuchsia-300 text-center px-6">Ecosistema Zero Trust para agencias de viajes</p>
-                            </div>
-                        </div>
-
-                        <div class="lg:col-span-7 p-10 md:p-12 flex flex-col justify-center">
-                            <div class="inline-flex items-center gap-2 text-fuchsia-400 font-bold mb-4 tracking-widest text-sm uppercase">
-                                <i class="fa-solid fa-server"></i> API Backend & Frontend CRM
-                            </div>
-                            <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white group-hover:text-fuchsia-400 transition-colors">Viabot (Ecosistema)</h3>
-                            
-                            <p class="text-slate-300 mb-6 text-lg leading-relaxed">
-                                Plataforma B2B para agencias de viajes. Cuenta con una API altamente segura y un CRM frontend especializado, diseñado para máxima accesibilidad por parte de agentes de la tercera edad.
-                            </p>
-                            
-                            <ul class="space-y-3 text-slate-400 mb-8">
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-fuchsia-500 mt-1"></i> <strong>Zero Trust & Fail-Fast:</strong> Arquitectura estricta de validación por API Keys y tenant_id (Supabase). Manejo de colas con <em>BullMQ</em> y caché ultrarrápida con <em>Redis</em>.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-fuchsia-500 mt-1"></i> <strong>Integraciones B2B:</strong> Conexión nativa con Sabre Gateway (reservas aéreas globales) y delegación híbrida de WhatsApp (Bots + Human) vía Puppeteer.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-fuchsia-500 mt-1"></i> <strong>Accesibilidad Extrema:</strong> Interfaz Next.js adaptada con dictado de notas por voz, bóveda interna para renderizar documentos sin descargas, e ingreso sin contraseñas (OAuth).</li>
-                            </ul>
-                            
-                            <div class="flex flex-wrap gap-3 mt-auto mb-8">
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-300">Next.js 14 / Express.js</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-300">TypeScript</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-300">Redis & BullMQ</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-300">Sabre API</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Micrep CRM -->
-                <div class="glass-card rounded-3xl overflow-hidden hover-lift group animate-fade-in delay-200">
-                    <div class="grid lg:grid-cols-12 gap-0">
-                        <div class="lg:col-span-7 p-10 md:p-12 flex flex-col justify-center">
-                            <div class="inline-flex items-center gap-2 text-blue-400 font-bold mb-4 tracking-widest text-sm uppercase">
-                                <i class="fa-solid fa-building"></i> Sistema Empresarial / Finanzas
-                            </div>
-                            <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white group-hover:text-blue-400 transition-colors">Libranza CRM (Micrep)</h3>
-                            
-                            <p class="text-slate-300 mb-6 text-lg leading-relaxed">
-                                Plataforma B2B para gestión operativa. Automatiza la prospección, cálculo de capacidades de crédito y administración de cartera.
-                            </p>
-                            
-                            <ul class="space-y-3 text-slate-400 mb-8">
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1"></i> <strong>Vista 360 & Simuladores:</strong> Panel central con herramientas de cotización de crédito y prevención de datos nulos.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1"></i> <strong>Seguridad Nivel Bancario:</strong> Control de Acceso (RBAC), Row Level Security en Supabase y políticas estrictas (CSP).</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1"></i> <strong>Gestión Documental:</strong> Generación automatizada de contratos/pagarés en PDF y carga XLSX.</li>
-                            </ul>
-                            
-                            <div class="flex flex-wrap gap-3 mt-auto mb-8">
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300">React + TS</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300">Supabase (BaaS)</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300">jsPDF & XLSX</span>
-                            </div>
-
-                            <div>
-                                <a href="https://micrep-crm.vercel.app/" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]">
-                                    Visitar Plataforma <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Visual presentation side -->
-                        <div class="lg:col-span-5 bg-gradient-to-br from-blue-900/40 to-slate-900 flex items-center justify-center p-12 border-l border-white/5 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
-                            
-                            <div class="relative z-10 w-full aspect-square rounded-2xl bg-slate-800/80 border border-blue-500/20 shadow-2xl flex flex-col items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                                <i class="fa-solid fa-chart-pie text-7xl text-blue-400 mb-6 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]"></i>
-                                <h4 class="text-2xl font-bold text-white mb-2">Micrep CRM</h4>
-                                <p class="text-blue-300 text-center px-6">Panel centralizado para gestión B2B</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Art Design Tienda -->
-                <div class="glass-card rounded-3xl overflow-hidden hover-lift group animate-fade-in delay-200">
-                    <div class="grid lg:grid-cols-12 gap-0">
-                        <div class="lg:col-span-5 order-last lg:order-first bg-gradient-to-br from-indigo-900/40 to-slate-900 flex items-center justify-center p-12 border-r border-white/5 relative overflow-hidden">
-                             <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
-                            
-                            <div class="relative z-10 w-full aspect-square rounded-2xl bg-slate-800/80 border border-indigo-500/20 shadow-2xl flex flex-col items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                                <i class="fa-solid fa-shirt text-7xl text-indigo-400 mb-6 drop-shadow-[0_0_15px_rgba(129,140,248,0.5)]"></i>
-                                <h4 class="text-2xl font-bold text-white mb-2">ArtDesign Tienda</h4>
-                                <p class="text-indigo-300 text-center px-6">E-Commerce y Personalización Gráfica</p>
-                            </div>
-                        </div>
-
-                        <div class="lg:col-span-7 p-10 md:p-12 flex flex-col justify-center">
-                            <div class="inline-flex items-center gap-2 text-indigo-400 font-bold mb-4 tracking-widest text-sm uppercase">
-                                <i class="fa-solid fa-cart-shopping"></i> E-Commerce Interactivo
-                            </div>
-                            <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white group-hover:text-indigo-400 transition-colors">ArtDesign Tienda</h3>
-                            
-                            <p class="text-slate-300 mb-6 text-lg leading-relaxed">
-                                Plataforma e-commerce moderna. Permite a los clientes diseñar prendas en tiempo real mediante modelado 2D.
-                            </p>
-                            
-                            <ul class="space-y-3 text-slate-400 mb-8">
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-indigo-500 mt-1"></i> <strong>Personalización:</strong> Manipulación de <code>&lt;canvas&gt;</code> con <em>Fabric.js</em> para añadir diseños en 4 vistas.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-indigo-500 mt-1"></i> <strong>Pagos e Integraciones:</strong> API de <em>Wompi</em> y sincronización con <em>Zoho CRM</em>.</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-indigo-500 mt-1"></i> <strong>Gestión de Roles:</strong> Autenticación con Supabase y Dashboards separados para Admin, Asesora y Cliente.</li>
-                            </ul>
-                            
-                            <div class="flex flex-wrap gap-3 mt-auto mb-8">
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300">React 19</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300">Fabric.js</span>
-                                <span class="px-4 py-1.5 text-sm font-medium rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300">Wompi API</span>
-                            </div>
-
-                            <div>
-                                <a href="https://artdesigntienda.vercel.app/" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]">
-                                    Visitar Tienda Virtual <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Footer Section -->
-    <section id="contacto" class="py-24 relative overflow-hidden bg-slate-900/50">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
-        
-        <div class="max-w-4xl mx-auto px-6 text-center z-10 relative animate-fade-in delay-200">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8">Ponte en Contacto</h2>
-            <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">
-                ¿Buscas a un desarrollador capaz de llevar tus proyectos al siguiente nivel tecnológico y visual? Hablemos.
-            </p>
+        <!-- Left Sidebar (Contact, Skills, Education) -->
+        <aside class="w-full md:w-1/3 bg-slate-900 text-slate-300 p-8 md:p-10 flex flex-col">
             
-            <div class="flex flex-wrap justify-center gap-6">
-                <!-- Email -->
-                <a href="mailto:jaisonrodriguez@gmail.com" class="group flex items-center gap-5 px-8 py-5 glass rounded-2xl hover-lift border border-slate-700 hover:border-blue-500 w-full sm:w-auto">
-                    <div class="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-envelope text-2xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <div class="text-sm text-slate-400 group-hover:text-slate-300 font-medium">Correo Electrónico</div>
-                        <div class="font-bold text-white group-hover:text-blue-400 transition-colors text-lg">jaisonrodriguez@gmail.com</div>
-                    </div>
-                </a>
-
-                <!-- Phone -->
-                <a href="https://wa.me/573239306599" target="_blank" class="group flex items-center gap-5 px-8 py-5 glass rounded-2xl hover-lift border border-slate-700 hover:border-green-500 w-full sm:w-auto">
-                    <div class="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <div class="text-sm text-slate-400 group-hover:text-slate-300 font-medium">WhatsApp / Teléfono</div>
-                        <div class="font-bold text-white group-hover:text-green-400 transition-colors text-lg">+57 3239306599</div>
-                    </div>
-                </a>
-
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/j4150nrodriguez" target="_blank" class="group flex items-center gap-5 px-8 py-5 glass rounded-2xl hover-lift border border-slate-700 hover:border-sky-500 w-full sm:w-auto">
-                    <div class="w-14 h-14 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
-                        <i class="fa-brands fa-linkedin-in text-2xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <div class="text-sm text-slate-400 group-hover:text-slate-300 font-medium">Red Profesional</div>
-                        <div class="font-bold text-white group-hover:text-sky-400 transition-colors text-lg">LinkedIn</div>
-                    </div>
-                </a>
+            <div class="mb-10 text-center md:text-left">
+                <h1 class="text-4xl font-bold text-white mb-2 tracking-tight">Jaison<br>Rodríguez</h1>
+                <p class="text-blue-400 text-lg font-medium">Desarrollador Full-Stack<br>& Analista de Datos</p>
             </div>
 
-            <!-- Resume Download Button -->
-            <div class="mt-16">
-                <a href="https://jaisonrodriguez-github-io.vercel.app/" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-white text-slate-900 font-extrabold text-lg hover:bg-slate-200 transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">
-                    <i class="fa-solid fa-file-pdf"></i> Ver Hoja de Vida Completa
-                </a>
+            <!-- Contact Info -->
+            <div class="mb-10 space-y-4">
+                <h2 class="text-white font-semibold uppercase tracking-wider text-sm border-b border-slate-700 pb-2 mb-4">Contacto</h2>
+                
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-location-dot mt-1 text-slate-500 w-5"></i>
+                    <span>Pasto, Nariño, Colombia</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-phone mt-1 text-slate-500 w-5"></i>
+                    <span>+57 323 930 6599</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-envelope mt-1 text-slate-500 w-5"></i>
+                    <a href="mailto:jaisonrodriguez@gmail.com" class="hover:text-blue-400 transition">jaisonrodriguez@gmail.com</a>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-brands fa-linkedin mt-1 text-slate-500 w-5"></i>
+                    <a href="https://www.linkedin.com/in/j4150nrodriguez" target="_blank" class="hover:text-blue-400 transition">in/j4150nrodriguez</a>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-brands fa-github mt-1 text-slate-500 w-5"></i>
+                    <a href="https://github.com/jaisonrodriguez" target="_blank" class="hover:text-blue-400 transition">github.com/jaisonrodriguez</a>
+                </div>
             </div>
-        </div>
-        
-        <!-- Footer bg elements -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-t from-blue-900/20 to-transparent -z-10"></div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-10 text-center text-slate-500 text-sm border-t border-white/10 mt-auto relative z-10 glass">
-        <p>&copy; 2026 Jaison Rodriguez. Desarrollado con excelencia.</p>
-    </footer>
+            <!-- Core Competencies -->
+            <div class="mb-10">
+                <h2 class="text-white font-semibold uppercase tracking-wider text-sm border-b border-slate-700 pb-2 mb-4">Competencias</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Arquitecturas B2B/B2C (Zero Trust)</li>
+                    <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Resolución técnica en producción</li>
+                    <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Detección proactiva de seguridad</li>
+                    <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Aprendizaje autónomo (Autodidacta)</li>
+                    <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Documentación técnica estructurada</li>
+                </ul>
+            </div>
 
-    <!-- Intersection Observer for Scroll Animations -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+            <!-- Tech Stack -->
+            <div class="mb-10">
+                <h2 class="text-white font-semibold uppercase tracking-wider text-sm border-b border-slate-700 pb-2 mb-4">Stack Técnico</h2>
+                
+                <div class="mb-3">
+                    <div class="text-xs text-slate-400 mb-1 uppercase tracking-wider font-semibold">Frontend</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">React 19</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Next.js 14</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Tailwind</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">TypeScript</span>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="text-xs text-slate-400 mb-1 uppercase tracking-wider font-semibold">Backend & BaaS</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Node.js</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Supabase (PostgreSQL)</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Redis / BullMQ</span>
+                    </div>
+                </div>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+                <div class="mb-3">
+                    <div class="text-xs text-slate-400 mb-1 uppercase tracking-wider font-semibold">IA & Datos</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Python</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Google Gemini AI</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Pandas / SQL</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Power BI</span>
+                    </div>
+                </div>
 
-            document.querySelectorAll('.delay-100, .delay-200, .delay-300').forEach(el => {
-                el.style.opacity = '0'; // Ensure hidden before scroll
-                observer.observe(el);
-            });
-        });
-    </script>
+                <div class="mb-3">
+                    <div class="text-xs text-slate-400 mb-1 uppercase tracking-wider font-semibold">Herramientas</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Git / GitHub</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">Puppeteer (Scraping)</span>
+                        <span class="px-2 py-1 bg-slate-800 rounded text-xs">PyInstaller</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="mt-auto">
+                <h2 class="text-white font-semibold uppercase tracking-wider text-sm border-b border-slate-700 pb-2 mb-4">Educación</h2>
+                <div class="mb-4">
+                    <h3 class="font-medium text-slate-200">Análisis y Desarrollo de Software</h3>
+                    <p class="text-sm text-slate-400">SENA (Titulado)</p>
+                </div>
+                <div class="mb-4">
+                    <h3 class="font-medium text-slate-200">Gestión de Mercados</h3>
+                    <p class="text-sm text-slate-400">SENA (Titulado)</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-slate-200">Rutas de Formación (Platzi)</h3>
+                    <p class="text-sm text-slate-400">Python, SQL, Power Automate, Visualización de Datos (2023)</p>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- Right Main Content -->
+        <main class="w-full md:w-2/3 p-8 md:p-12">
+            
+            <!-- Profile Summary -->
+            <section class="mb-10">
+                <h2 class="text-2xl section-title">Perfil Profesional</h2>
+                <p class="text-slate-600 leading-relaxed text-justify">
+                    Desarrollador Full-Stack y Analista de Datos con más de 5 años de experiencia construyendo soluciones en entornos de producción. Especializado en diseñar ecosistemas web escalables (React, Node.js, Supabase), automatización de procesos mediante IA/RPA (Python) y optimización de bases de datos relacionales (SQL). Historial comprobado detectando vulnerabilidades críticas y transformando requerimientos de negocio complejos en arquitecturas seguras (Zero Trust), accesibles y eficientes. Altamente enfocado en la resolución de problemas y la entrega de interfaces de usuario (UX) de calidad premium.
+                </p>
+            </section>
+
+            <!-- Experience & Projects -->
+            <section>
+                <h2 class="text-2xl section-title">Experiencia y Proyectos Destacados</h2>
+                
+                <!-- Viabot -->
+                <div class="mb-8 print-break-inside-avoid">
+                    <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-slate-800">Arquitecto Full-Stack <span class="font-normal text-slate-500">| Viabot (API & CRM)</span></h3>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full mt-1 sm:mt-0 whitespace-nowrap">Proyecto Propio</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-600 mt-3 text-sm">
+                        <li><strong>Arquitectura y Seguridad:</strong> Diseñé un ecosistema para agencias de viajes (Next.js 14, Node.js) con protocolos estrictos <em>Zero Trust</em> y <em>Fail-Fast</em> utilizando Supabase, BullMQ y Redis para el caché y manejo de colas de alta concurrencia.</li>
+                        <li><strong>Integraciones B2B:</strong> Implementé el Gateway de reservas aéreas de Sabre y desarrollé un bot híbrido con <code>whatsapp-web.js</code> (Puppeteer) para delegación inteligente (IA y Humano) evadiendo restricciones oficiales de Meta.</li>
+                        <li><strong>Accesibilidad Extrema:</strong> Construí un CRM frontend sin contraseñas (Google OAuth), con dictado de notas por voz, tableros Kanban simplificados y bóvedas internas de PDF, adaptado para agentes de ventas de la tercera edad.</li>
+                    </ul>
+                </div>
+
+                <!-- ArtDesign & Micrep -->
+                <div class="mb-8 print-break-inside-avoid">
+                    <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-slate-800">Desarrollador Principal <span class="font-normal text-slate-500">| ArtDesign Tienda & Micrep CRM</span></h3>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full mt-1 sm:mt-0 whitespace-nowrap">Abr 2026 – Presente</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-600 mt-3 text-sm">
+                        <li><strong>ArtDesign E-commerce:</strong> Desarrollé una plataforma con motor de personalización de prendas avanzado manipulando <code>&lt;canvas&gt;</code> (Fabric.js), integración de pasarela Wompi y sistema de roles (Admin, Asesora, Cliente).</li>
+                        <li><strong>Auditoría de Seguridad:</strong> Detecté y mitigé una vulnerabilidad crítica (Zero-Day local) en Wompi donde el secreto HMAC se exponía en el cliente; migré la lógica a <em>Supabase Edge Functions</em> para eliminar el vector de ataque.</li>
+                        <li><strong>Automatización y ETL:</strong> Implementé un pipeline ETL en Python para carga masiva de productos (CSV a PostgreSQL) y sincronicé datos en tiempo real entre Supabase y Zoho CRM mediante listeners.</li>
+                        <li><strong>Libranza CRM (Micrep):</strong> Creé el sistema B2B "Vista 360" en React/Vite para gestión de libranzas, con generación de contratos dinámicos (jsPDF) y protección de datos basada en roles (RLS).</li>
+                    </ul>
+                </div>
+
+                <!-- AutoZajuna -->
+                <div class="mb-8 print-break-inside-avoid">
+                    <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-slate-800">Desarrollador de Automatización RPA <span class="font-normal text-slate-500">| AutoZajuna-Pro</span></h3>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full mt-1 sm:mt-0 whitespace-nowrap">Ene 2026 – Presente</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-600 mt-3 text-sm">
+                        <li><strong>IA & Automatización:</strong> Creé un software de escritorio (Windows) que automatiza la calificación de evidencias en plataformas LMS (Moodle) implementando scraping con <em>Playwright</em> e Inteligencia Artificial con la API de <em>Google Gemini</em>.</li>
+                        <li><strong>Licenciamiento B2B:</strong> Empaqueté la solución con <em>PyInstaller</em> (.exe) y diseñé un sistema de protección de código cerrado con llaves validadas por <em>Machine ID</em> y almacenamiento seguro de credenciales.</li>
+                    </ul>
+                </div>
+
+                <!-- Mi Crep SAS -->
+                <div class="mb-8 print-break-inside-avoid">
+                    <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-slate-800">Analista de Datos <span class="font-normal text-slate-500">| Mi Crep SAS</span></h3>
+                        <span class="text-sm font-semibold text-slate-500 mt-1 sm:mt-0 whitespace-nowrap">Nov 2021 – Nov 2025</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-600 mt-3 text-sm">
+                        <li><strong>Ingeniería de Datos:</strong> Ejecuté la extracción, transformación y modelado (ETL) de datos financieros utilizando Python, SQL y Java sobre bases de datos MySQL y SQL Server.</li>
+                        <li><strong>Optimización de Consultas:</strong> Refactoricé procedimientos almacenados complejos, logrando una reducción drástica en los tiempos de respuesta del sistema para operaciones de reporte recurrente.</li>
+                        <li><strong>Machine Learning:</strong> Apliqué modelos estadísticos (scikit-learn) para identificar patrones operativos y descubrir oportunidades de negocio estratégicas.</li>
+                    </ul>
+                </div>
+
+                <!-- SENA -->
+                <div class="mb-8 print-break-inside-avoid">
+                    <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-slate-800">Pasante SENA (Etapa Productiva) <span class="font-normal text-slate-500">| Corp. Mundial Mujer Col.</span></h3>
+                        <span class="text-sm font-semibold text-slate-500 mt-1 sm:mt-0 whitespace-nowrap">May 2025 – Nov 2025</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-600 mt-3 text-sm">
+                        <li>Desarrollé y optimicé el sistema CRM institucional para mejorar la gestión con clientes. Diseñé procesos ETL para normalizar fuentes de datos heterogéneas y construí dashboards en Power BI con KPIs ejecutivos.</li>
+                    </ul>
+                </div>
+
+                <!-- Roles Previos -->
+                <div class="mb-4 print-break-inside-avoid">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Roles Previos Relevantes</h3>
+                    
+                    <div class="mb-3">
+                        <div class="font-semibold text-slate-700">Asesor de Crédito y Automatización <span class="font-normal text-slate-500">| Nexabpo (Mar 2020 – Nov 2020)</span></div>
+                        <p class="text-slate-600 text-sm mt-1">Automaticé consultas y generación de reportes recurrentes para el seguimiento ágil de KPIs de crédito.</p>
+                    </div>
+
+                    <div>
+                        <div class="font-semibold text-slate-700">Analista de Libranza y Datos <span class="font-normal text-slate-500">| Kreditplus / Consultorías Financieras (Jun 2017 – Sep 2019)</span></div>
+                        <p class="text-slate-600 text-sm mt-1">Preparación, extracción y modelado de datos usando SQL SSMS, Power Query, Power Pivot y Power BI para soportar decisiones operativas.</p>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
 </body>
 </html>
